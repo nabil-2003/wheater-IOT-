@@ -23,7 +23,7 @@ mongoose.connect(dbURI, {
 const server = http.createServer(app);
 const io = new socketIo.Server(server, { cors: { origin: "*" } });
 
-server.listen(4000, () => {
+server.listen(4000, "0.0.0.0" () => {
   console.log("Server listening on port 4000");
 });
 app.get("/",(req,res)=>{
