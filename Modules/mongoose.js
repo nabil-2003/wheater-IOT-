@@ -12,7 +12,9 @@ const SchemaData =  new Schema({
     data :{
         type: Object , 
          required : true 
-    }})
+    },
+ createdAt: { type: Date, default: Date.now, expires: '7d' }
+})
 
 
     module.exports = model("DATA" , SchemaData) ; 
