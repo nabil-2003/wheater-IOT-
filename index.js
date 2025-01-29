@@ -12,7 +12,8 @@ app.use(cors());
 app.use(express.json())
 
 // Use environment variable or config for database URI
-const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/weather";
+const dbURI = process.env.MONGODB_URI ||  "mongodb+srv://filalinabil010:pbVYn8!5Pwdv_Md@cluster0.xaloc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+;
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
