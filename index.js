@@ -10,7 +10,6 @@ let firstTime = true
 const app = express();
 app.use(cors());
 app.use(express.json())
-
 // Use environment variable or config for database URI
 const dbURI = process.env.MONGODB_URI ||  "mongodb+srv://filalinabil010:pbVYn8!5Pwdv_Md@cluster0.xaloc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 ;
@@ -27,9 +26,11 @@ const io = new socketIo.Server(server, { cors: { origin: "*" } });
 server.listen(4000, () => {
   console.log("Server listening on port 4000");
 });
-
+app.get("/",(req,res)=>{
+  res.send("hello")
+})
 app.get('/api/data', async  (req, res) => {
- const arr =    await week() ; 
+ const arr = await week() ; 
  console.log(arr)
  res.json({data : arr })
 });
