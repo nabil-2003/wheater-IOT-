@@ -24,7 +24,13 @@ mongoose.connect(dbURI, {
   .catch(err => console.error("MongoDB connection error:", err));
 
 const server = http.createServer(app);
-const io = new socketIo.Server(server, { cors: { origin: "*" } });
+const io = new socketIo.Server(server, {
+  cors: {
+    origin: "*",  // Allow all origins (you can change this to a specific domain later)
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],  // If you have custom headers
+  },
+});
 
 server.listen(4000, "0.0.0.0" ,  () => {
   console.log("Server listening on port 4000");
